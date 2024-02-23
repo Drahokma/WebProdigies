@@ -58,7 +58,7 @@ type Props = {
             modal={false}
             {...openState}
         >
-            <SheetTrigger asChild className = 'absolute left-4 top-4 z-[100]'>
+            <SheetTrigger asChild className = 'absolute left-4 top-4 z-[100] md:!hidden flex'>
                 <Button
                 variant={'outline'}
                 size={'icon'}
@@ -66,14 +66,16 @@ type Props = {
                     <Menu />
                 </Button>
             </SheetTrigger>
+
             <SheetContent
+                showX={!defaultOpen}
                 side={'left'}
                 className={clsx(
-                    'bg-background/80 backdrop-blur-xl fixed top-0 border-r-[1px] p-6',
-                    {
-                        'hidden md:inline-block z-0 w-[300px]': defaultOpen,
-                        'inline-block md:hidden z-[100] w-full': !defaultOpen
-                    },
+                'bg-background/80 backdrop-blur-xl fixed top-0 border-r-[1px] p-6',
+                {
+                    'hidden md:inline-block z-0 w-[300px]': defaultOpen,
+                    'inline-block md:hidden z-[100] w-full': !defaultOpen,
+                }
                 )}
             >
                 <div>
